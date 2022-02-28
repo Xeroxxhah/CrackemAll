@@ -37,6 +37,7 @@ if mode == 'zip':
     print('Cracking Zip')
     zipFile = Zip(file)
     print(f'File: {zipFile.filename}')
+    zipFile.unlock(wordlist)
     print('\nArchive Content\n')
     zipFile.listzip()
 elif mode == 'pdf':
