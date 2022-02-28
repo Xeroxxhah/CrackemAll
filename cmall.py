@@ -42,7 +42,5 @@ if mode == 'zip':
 elif mode == 'pdf':
     print('Cracking pdf')
     Pdf.unlock(file, wordlist)
-elif mode == 'doc':
-    pass
 else:
     print('Wrong Mode...')
