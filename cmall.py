@@ -26,7 +26,6 @@ try:
 
     wordlist = sys.argv[3]
 
-    threads_no = int(sys.argv[4])
 except IndexError:
     print(f'{sys.argv[0]} <mode> <file> <worldlist>')
     print(f'Example: {sys.argv[0]} zip secret.zip /usr/share/wordlists/rockyou.txt')
@@ -38,13 +37,6 @@ if mode == 'zip':
     print('Cracking Zip')
     zipFile = Zip(file)
     print(f'File: {zipFile.filename}')
-    for _ in range(threads_no):
-        thread = Thread(target=zipFile.unlock, args=(wordlist,))
-        thread.start()
-        threads.append(thread)
-    
-    for thread in threads:
-        thread.join()
     print('\nArchive Content\n')
     zipFile.listzip()
 elif mode == 'pdf':
